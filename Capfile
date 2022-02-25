@@ -46,7 +46,7 @@ install_plugin Capistrano::SCM::Git
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
 set :application, "smartable"
-set :repo_url, "git@github.com:username/myapp.git"
+set :repo_url, "git@github.com:JAVJAR/demo_to_capistrano.git"
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
