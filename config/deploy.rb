@@ -2,7 +2,12 @@
 lock "~> 3.16.0"
 
 set :application, "smartable"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "git@github.com:J4VJ4R/demo_to_capistrano.git"
+set :deploy_to, "/home/deploy/#{fetch :application}"
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+
+# Only keep the last 5 releases to save disk space
+set :keep_releases, 5
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
