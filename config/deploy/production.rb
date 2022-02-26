@@ -7,7 +7,16 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
+set :application, "smartable"
+set :repo_url, "git@github.com:username/myapp.git"
 
+# Deploy to the user's home directory
+set :deploy_to, "/home/deploy/#{fetch :application}"
+
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+
+# Only keep the last 5 releases to save disk space
+set :keep_releases, 5
 
 # role-based syntax
 # ==================
@@ -59,5 +68,3 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server '52.224.1.203', user: 'deploy', roles: %w{app db web}
-

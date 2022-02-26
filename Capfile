@@ -3,15 +3,14 @@ require "capistrano/setup"
 
 # Include default deployment tasks
 require "capistrano/deploy"
-require "capistrano/rails"
-require "capistrano/bundler"
-require "capistrano/rvm"
-require "capistrano/puma"
+
+require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'capistrano/rbenv'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.0.3'
+
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
@@ -44,18 +43,3 @@ install_plugin Capistrano::SCM::Git
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
-
-set :application, "smartable"
-set :repo_url, "git@github.com:JAVJAR/demo_to_capistrano.git"
-
-# Deploy to the user's home directory
-set :deploy_to, "/home/deploy/#{fetch :application}"
-
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
-
-# Only keep the last 5 releases to save disk space
-set :keep_releases, 5
-
-# Optionally, you can symlink your database.yml and/or secrets.yml file from the shared directory during deploy
-# This is useful if you don't want to use ENV variables
-# append :linked_files, 'config/database.yml', 'config/secrets.yml'
