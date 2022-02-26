@@ -1,3 +1,5 @@
+server '20.85.231.214', user: 'deploy', roles: %w{app db web}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -7,16 +9,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-set :application, "smartable"
-set :repo_url, "git@github.com:username/myapp.git"
 
-# Deploy to the user's home directory
-set :deploy_to, "/home/deploy/#{fetch :application}"
-
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
-
-# Only keep the last 5 releases to save disk space
-set :keep_releases, 5
 
 # role-based syntax
 # ==================
