@@ -2,7 +2,7 @@
 lock "~> 3.16.0"
 
 set :application, "smartable"
-set :repo_url, "https://github.com/J4VJ4R/demo_to_capistrano.git"
+set :repo_url, "git@github.com:J4VJ4R/demo_to_capistrano.git"
 set :deploy_to, "/home/deploy/#{fetch :application}"
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
